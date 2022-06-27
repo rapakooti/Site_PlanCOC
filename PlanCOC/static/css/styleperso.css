@@ -1,0 +1,30 @@
+ @font-face {
+  font-family: perso;
+  src: url("../Police/police_logo.ttf");
+}
+
+.jumbotron {
+font-family:perso;
+background-image: url("../Image_site/banniere.jpg");
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+border-style: groove;
+margin-bottom: 20px;
+
+-ms-flex-item-align: center;
+  min-height: 50%;  /* Fallback for browsers do NOT support vh unit */
+ 
+}
+.jumbotron h1{
+  color: white;
+  align-content: center;
+  margin-top: 100px;
+  
+}
+
+.jumbotron p{
+  color: #fff;
+  align-self: flex-end;
+}
+

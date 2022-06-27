@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div class="row">
+<!-- Blog entries-->
+<div class="col-lg-8">
+
+<!-- Featured blog post-->
+        <div class="card ">
+                <a href="#!"><img class="card-img-top" src="https://dummyimage.com/850x350/dee2e6/6c757d.jpg" alt="..." /></a>
+                <div class="card-body">
+                <div class="small text-muted">January 1, 2022</div>
+                <h2 class="card-title">plus télécharger Post Title</h2>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
+                <a class="btn btn-outline-danger" href="#!">Read more →</a>
+                </div>
+        </div>
+        <br />
+
+<!-- Nested row for non-featured blog posts-->
+        <div class="row">
+
+                {% for post in posts %}
+
+                <div class="col-lg-6">
+                        <!-- Blog post-->
+                        <div class="card ">
+                                <a href="#!"><img class="card-img-top" src="{% static 'Plan_HDV/' %}{{post.image}}" alt="..." /></a>
+                                <div class="card-body">
+                                        <div class="small text-muted">{{post.publication}} par <em>{{post.author}}</em></div>
+                                        <h2 class="card-title h4">{{post.title}}</h2>
+                                        <p class="card-text">{{post.tags}} 1 ipsum {{post.usage}}.</p>
+                                        <a class="btn btn-outline-danger" href="{{post.get_absolute_url}}">Détails</a>
+                                </div>
+                        </div>
+                </div>
+                {% if forloop.counter|divisibleby:2 %}
+               
+        </div>
+        <br>
+
+                <div class="row">
+                    <br>
+                    
+                {% endif %}   
+
+                {% endfor %}
+                </div>
+<!-- ancien methode  {% include "blog/layouts/pagination.html" with page=page_obj %} -->
+{% include "blog/layouts/pagination.html" with page=posts %}
+</div>
+
+<!-- Side widgets-->
+<div class="col-lg-4">
+<!-- Search widget-->
+<div class="card ">
+<div class="card-header">Rechercher</div>
+<div class="card-body">
+<div class="input-group">
+<input class="form-control" type="text" placeholder="..." aria-label="..." aria-describedby="button-search" />
+<button class="btn btn-danger" id="button-search" type="button">Go!</button>
+</div>
+</div>
+</div>
+<br />
+<!-- Categories widget-->
+<div class="card ">
+<div class="card-header">Categories</div>
+<div class="card-body">
+<div class="row">
+<div class="col-sm-6">
+<ul class="list-unstyled mb-0">
+<li><a href="#!">Web Design</a></li>
+<li><a href="#!">HTML</a></li>
+<li><a href="#!">Freebies</a></li>
+</ul>
+</div>
+<div class="col-sm-6">
+<ul class="list-unstyled mb-0">
+<li><a href="#!">JavaScript</a></li>
+<li><a href="#!">CSS</a></li>
+<li><a href="#!">Tutorials</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<br />  
+<!-- Side widget-->
+<div class="card ">
+<div class="card-header ">Publicité</div>
+<div class="card-body text-center"><iframe src="https://rcm-eu.amazon-adsystem.com/e/cm?o=8&p=22&l=ur1&category=amu&banner=1JJWGCWPBANHHWTF9B82&f=ifr&linkID=921b06a05586b4ce45854bd3b9aa49d7&t=nopamani-21&tracking_id=nopamani-21" width="250" height="250" scrolling="no" border="40" marginwidth="0" style="border:none;" frameborder="0" sandbox="allow-scripts allow-same-origin allow-popups allow-top-navigation-by-user-activation"></iframe></div>
+</div>
+</div>
+</div>
+</div>
+{% endblock content %}

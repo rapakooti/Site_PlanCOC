@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<form id="contactForm"  method="POST" action=".">
+ 
+    <p class="fs-4"> Création du compte</p><span class="erreur text-danger">  
+    
+        <div class="input-group has-validation mb-2">
+            <span class="input-group-text bi-plus-lg"><i class="text-danger fa-regular fa-circle-user"></i></span>
+            
+            <!--  <input type="text" class="form-control" id="username" name='username' placeholder="nom d'utilisateur" required>-->
+           {{user_form.username}}
+           
+        </div>
+        <div class="input-group has-validation mb-2">
+            <span class="input-group-text bi-plus-lg"><i class=" text-danger fa-solid fa-pen-to-square"></i></span>
+            <!--  <input type="text" class="form-control" id="prenom" name='prenom' placeholder="Prénom" required>-->
+            
+           {{user_form.first_name}}
+        </div>
+
+    <div class="input-group has-validation mb-2">
+        <span class="input-group-text bi-plus-lg"><i class=" text-danger fa-solid fa-pen-to-square"></i></span>
+        
+       <!-- <input type="text" class="form-control" id="premier" name='username' placeholder="Nom" required>-->
+       {{user_form.last_name}}
+    </div>
+      <div class="input-group has-validation mb-2">
+        <span class="input-group-text bi-plus-lg"><i class=" text-danger  fa-solid fa-at"></i></span>
+        
+        <input type="text" class="form-control" id="premier"  name='password' placeholder="Adresse mail" required>
+      
+      </div>
+      <div class="input-group has-validation mb-2">
+        <span class="input-group-text bi-plus-lg"><i class="text-danger fa-solid fa-key"></i></span>
+        
+        <input type="text" class="form-control" id="premier"  name='password' placeholder="Mot de passe" required>
+      
+      </div>
+      <div class="input-group has-validation mb-2">
+        <span class="input-group-text bi-plus-lg"><i class="text-danger fa-solid fa-key"></i></span>
+        
+        <input type="text" class="form-control" id="premier"  name='password' placeholder="Confirmer le mot de passe" required>
+      
+      </div>
+   
+  
+        <div class="d-grid gap-2 col-4">
+        <button class="btn btn-outline-danger"  id="submitButton" type="submit">Valider</button>
+    
+    </div>
+   
+</form>
+<br> 
+<div class="d-flex justify-content-center">
+    <iframe target="_blank" src="https://rcm-eu.amazon-adsystem.com/e/cm?o=8&p=48&l=ur1&category=pw&banner=1JDDWNTGS648SGA9WQG2&f=ifr&linkID=e5ac770c26dffff886957b5f7bc3a460&t=nopamani-21&tracking_id=nopamani-21" width="728" height="90" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0" sandbox="allow-scripts allow-same-origin allow-popups allow-top-navigation-by-user-activation"></iframe>
+</div>
+
+{%endblock%}

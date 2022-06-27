@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div class="row">
+<!-- Blog entries-->
+<div class="col-lg-9">
+      
+        {% for prout in postavant %}
+     
+        <div class="card  border-danger ">
+                <a href="#!"><img class="card-img-top" src="{% static 'Plan_HDV/' %}{{ prout.image}}" alt="..." /></a>
+                <div class="card-body">
+                <div class="small text-muted">{{prout.publication}}   par <em>{{prout.author}}</em></div>
+                <h2 class="card-title">{{prout.title}}</h2>
+                <p class="card-text">Description du plan : {{prout.description}}</p>
+                <p class="card-text">Tag : <span class="badge rounded-pill text-bg-danger">{{prout.tag}}</span></p>
+                <a class="btn btn-danger" href="{{prout.get_absolute_url}}">Details</a>
+                </div>
+        </div> 
+        {% endfor%}
+        <br />
+    
+        
+<!-- Nested row for non-featured blog posts-->
+        <div class="row">
+
+                {% for post in posts %}
+                       
+                <div class="col-lg-6">
+                        <!-- Blog post-->
+                        <div class="card  border-danger h-100 ">
+                                <a href="#!"><img class="card-img-top" src="{% static 'Plan_HDV/' %}{{post.image}}" alt="..." /></a>
+                                <div class="card-body">
+                                        <div class="small text-muted">{{post.publication}} par <em>{{post.author}}</em></div>
+                                        <h2 class="card-title h4">{{post.title}}</h2>
+                                        <p class="card-text">Description du plan : {{post.description}}</p>
+                                        <p class="card-text">{{post.tag}}</p>
+                                        <a class="btn btn-danger" href="{{post.get_absolute_url}}">Détails</a>
+                                </div>
+                        </div>
+                </div>
+                {% if forloop.counter|divisibleby:2 %}
+               
+        </div>
+        <br>
+
+                <div class="row">
+                    <br>
+                    
+                {% endif %}   
+
+                {% endfor %}
+                </div>
+<!-- ancien methode  {% include "blog/layouts/pagination.html" with page=page_obj %} -->
+{% include "blog/layouts/pagination.html" with page=posts %}
+</div>
+
+<!-- Side widgets-->
+<div class="col-lg-3">
+
+
+<!-- Categories widget-->
+<!-- Side widget-->
+
+
+<div class="card border border-danger ">
+<div class="card-header perso text-danger text-center">Statistiques <i class="fa-solid  text-danger fa-bars-staggered"></i>       </div>
+<div class="card-body">
+<ul class="list-group list-group-flush">
+<li class="list-group-item card-text text-danger ">Plan HDV : {{StatHDV}}</li>
+<li class="list-group-item card-text text-danger">Plan MDO : {{StatMDO}}</li>
+<li class="list-group-item card-text text-danger">Recrutement: {{StatRecrut}}</li>
+</ul>
+</div>
+</div>
+<br>
+<div class="card border border-danger ">
+        <div class="card-header perso text-danger text-center">Publicité</div>
+        <div class="card-body text-center"><iframe src="https://rcm-eu.amazon-adsystem.com/e/cm?o=8&p=14&l=ur1&category=amu&banner=0VS2QQG3GZE9S0J85HG2&f=ifr&linkID=a326275e555f325508adf5cac220a186&t=nopamani-21&tracking_id=nopamani-21" width="160" height="600" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0" sandbox="allow-scripts allow-same-origin allow-popups allow-top-navigation-by-user-activation"></iframe></div>
+        </div>
+</div>
+
+
+</div>
+</div>
+<br />
+{% endblock content %}

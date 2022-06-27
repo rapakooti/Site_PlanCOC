@@ -1,0 +1,127 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+
+
+        
+  <div class="col-lg-8">    
+  <div class="container px-5">
+<form id="contactForm" action="." method="post">
+  {% csrf_token %}
+    <p class="fs-4"> Création du compte</p><span class="erreur text-danger">  
+        {% if user_form.username.errors %}
+        {{user_form.username.errors.as_text}}
+         {% endif%}
+        <div class="input-group has-validation mb-2">
+            <span class="input-group-text bi-plus-lg border-danger "><i class="text-danger fa-regular fa-circle-user"></i></span>
+            
+            <!--  <input type="text" class="form-control" id="username" name='username' placeholder="nom d'utilisateur" required>-->
+           {{user_form.username}}
+           
+        </div>
+        <div class="input-group has-validation mb-2">
+            <span class="input-group-text bi-plus-lg border-danger "><i class=" text-danger fa-solid fa-pen-to-square"></i></span>
+            
+            <!--  <input type="text" class="form-control" id="prenom" name='prenom' placeholder="Prénom" required>-->
+            
+           {{user_form.first_name}}
+           
+        </div>
+
+    <div class="input-group has-validation mb-2">
+        <span class="input-group-text bi-plus-lg border-danger "><i class=" text-danger fa-solid fa-pen-to-square"></i></span>
+        
+       <!-- <input type="text" class="form-control" id="premier" name='username' placeholder="Nom" required>-->
+       {{user_form.last_name}}
+    </div>
+    {% if user_form.email.errors %}
+        {{user_form.email.errors.as_text}}
+         {% endif%}
+      <div class="input-group has-validation mb-2">
+        <span class="input-group-text bi-plus-lg border-danger "><i class=" text-danger  fa-solid fa-at"></i></span>
+        
+         <!-- <input type="text" class="form-control" id="premier"  name='password' placeholder="Adresse mail" required>-->
+      {{user_form.email}}
+      </div>
+
+
+      <div class="input-group has-validation mb-2">
+        <span class="input-group-text bi-plus-lg border-danger "><i class="text-danger fa-solid fa-key"></i></span>
+        
+        <!--  <input type="text" class="form-control" id="premier"  name='password' placeholder="Mot de passe" required>-->
+        {{user_form.password}}
+      
+      </div>
+
+
+      <div class="input-group has-validation mb-2">
+        <span class="input-group-text bi-plus-lg border-danger "><i class="text-danger fa-solid fa-key"></i></span>
+        
+        <!--  <input type="text" class="form-control" id="premier"  name='Confirmpassword' placeholder="Confirmer le mot de passe" required>-->
+        {{user_form.confirmPassword}}
+      
+      </div>
+  {{user_form.password.errors}}
+
+ 
+  
+      <div class="d-flex justify-content-between" >
+                     
+        <button class="btn btn-outline-danger" style="width: 200px;"  id="submitButton" type="submit">Valider</button>
+        <a class="btn btn-outline-danger"style="width: 200px;" href="{% url 'login_view'%}" role="button">Se connecter</a>
+                      
+    </div>
+
+
+
+</form>
+  </div>
+          
+
+
+<br> 
+<div class="d-flex justify-content-center">
+    <iframe target="_blank" src="https://rcm-eu.amazon-adsystem.com/e/cm?o=8&p=48&l=ur1&category=pw&banner=1JDDWNTGS648SGA9WQG2&f=ifr&linkID=e5ac770c26dffff886957b5f7bc3a460&t=nopamani-21&tracking_id=nopamani-21" width="728" height="90" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0" sandbox="allow-scripts allow-same-origin allow-popups allow-top-navigation-by-user-activation"></iframe>
+</div>
+
+
+
+
+</div>  
+
+<!-- menu de droite-->
+  <div class="col-lg-4">
+
+
+    <div class="card border border-danger ">
+        <div class="card-header perso text-danger text-center">Statistiques <i class="fa-solid  text-danger fa-bars-staggered"></i>       </div>
+        <div class="card-body">
+        <ul class="list-group list-group-flush">
+        <li class="list-group-item card-text text-danger ">Plan HDV : {{StatHDV}}</li>
+        <li class="list-group-item card-text text-danger">Plan MDO : {{StatMDO}}</li>
+        <li class="list-group-item card-text text-danger">Recrutement: {{StatRecrut}}</li>
+        </ul>
+        </div>
+        </div>
+        <br>
+
+
+
+
+
+    
+      <!-- Side widget-->
+      <div class="card mb-4 border-danger ">
+          <div class="card-header text-danger perso">Publicité</div>
+          <div class="card-body text-center"><iframe src="https://rcm-eu.amazon-adsystem.com/e/cm?o=8&p=22&l=ur1&category=amu&banner=1JJWGCWPBANHHWTF9B82&f=ifr&linkID=921b06a05586b4ce45854bd3b9aa49d7&t=nopamani-21&tracking_id=nopamani-21" width="250" height="250" scrolling="no" border="40" marginwidth="0" style="border:none;" frameborder="0" sandbox="allow-scripts allow-same-origin allow-popups allow-top-navigation-by-user-activation"></iframe></div>
+      </div>
+  </div>
+
+
+</div>
+
+
+              </div>
+              <br>
+{%endblock%}

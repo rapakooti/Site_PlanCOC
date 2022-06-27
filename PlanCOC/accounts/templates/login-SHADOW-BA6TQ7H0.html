@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="row">
+
+
+        
+            <div class="col-lg-8">
+            <div class="container px-5">
+                <!-- <form id="contactForm" data-sb-form-api-token="API_TOKEN" method="POST" action=".">-->
+                 <form id="contactForm"  method="POST" action=".">
+                    {% csrf_token %}
+                    <p class="fs-4"> Se connecter</p><span class="erreur text-danger">  
+                    {% if erreur %}
+                    {{erreur}} </span>
+                    {% endif %}
+                    
+
+                    <div class="input-group has-validation mb-2">
+                        
+                        <span class="input-group-text bi-plus-lg"><i class=" text-danger fa-regular fa-circle-user"></i></span>
+                        
+                        <input type="text" class="form-control" id="nom" name='username' placeholder="Nom d'utilisateur" required>
+                        
+                    
+                      </div>
+                      <div class="input-group has-validation mb-2">
+                        <span class="input-group-text bi-plus-lg"><i class="text-danger fa-solid fa-key"></i></span>
+                        
+                        <input type="password" class="form-control" id="pass"  name='password' placeholder="Mot de passe" required>
+                      
+                      </div>
+                      <div class="d-flex justify-content-between" >
+                      <button class="btn btn-outline-danger"  style="width: 200px;" id="submitButton" type="submit">Valider</button>
+                      <a class="btn btn-outline-danger btn-block" style="width: 200px;" href="{% url 'register_view'%}" role="button">Inscription</a>
+                      
+                       
+                    </div>
+                   
+                </form>
+
+                
+            </div>
+          
+
+
+<br> 
+<div class="d-flex justify-content-center">
+    <iframe target="_blank" src="https://rcm-eu.amazon-adsystem.com/e/cm?o=8&p=48&l=ur1&category=pw&banner=1JDDWNTGS648SGA9WQG2&f=ifr&linkID=e5ac770c26dffff886957b5f7bc3a460&t=nopamani-21&tracking_id=nopamani-21" width="728" height="90" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0" sandbox="allow-scripts allow-same-origin allow-popups allow-top-navigation-by-user-activation"></iframe>
+</div>
+
+
+
+
+</div>  
+
+<!-- menu de droite-->
+  <div class="col-lg-4">
+     
+    
+
+    
+
+
+
+      <!-- Categories widget-->
+          <!-- Side widget-->
+      <div class="card mb-4 border-danger ">
+          <div class="card-header ">Publicité</div>
+          <div class="card-body text-center"><iframe src="https://rcm-eu.amazon-adsystem.com/e/cm?o=8&p=22&l=ur1&category=amu&banner=1JJWGCWPBANHHWTF9B82&f=ifr&linkID=921b06a05586b4ce45854bd3b9aa49d7&t=nopamani-21&tracking_id=nopamani-21" width="250" height="250" scrolling="no" border="40" marginwidth="0" style="border:none;" frameborder="0" sandbox="allow-scripts allow-same-origin allow-popups allow-top-navigation-by-user-activation"></iframe></div>
+      </div>
+
+
+     
+
+
+
+
+  </div>
+
+
+</div>
+
+
+              </div>
+              <br>
+{% endblock content%}
